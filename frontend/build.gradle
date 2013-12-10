@@ -1,0 +1,3 @@
+apply plugin: 'jetty'
+
+description = 'Web frontend client for the Erglog backend application'
