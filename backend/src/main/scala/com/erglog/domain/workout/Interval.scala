@@ -20,7 +20,7 @@ case class Interval(val splits: List[Split], val isDistanceBased: Boolean, val r
   /**
    * @return Average 500m split time in seconds (yes, this could be optimized).
    */
-  def averageSplitTime: Double = distance / (workTime / 500)
+  def averageSplitTime: Double = workTime / (distance / 500)
 
   /**
    * @return Average heart rate for the interval in beats-per-minute.
@@ -30,5 +30,5 @@ case class Interval(val splits: List[Split], val isDistanceBased: Boolean, val r
   /**
    * @return Average 500m split time in seconds during the recovery period.
    */
-  def averageRecoverySplitTime: Double = if (restTime > 0) recoveryDistance / (restTime / 500) else 0
+  def averageRecoverySplitTime: Double = if (recoveryDistance > 0) restTime / (recoveryDistance / 500) else 0
 }
